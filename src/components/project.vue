@@ -18,11 +18,13 @@
 
             <div class="about">
               <h3>About the project</h3>
+			  <div class="descriptionText">
               <div v-for="item of description" v-bind:key="item">
                 {{item}}
                 <br />
                 <br />
               </div>
+			  </div>
             </div>
           </div>
 
@@ -161,8 +163,8 @@ methods: {
 
 
 .hero {
-  width: 100%;
   max-height: 90vh;
+  max-width: 100%;
 }
 .videoContainer {
   width: 100%;
@@ -190,6 +192,16 @@ methods: {
 .about {
 	text-align: left;
   	width: 100%;
+}
+
+
+@media (min-width: 635px){
+ 
+.about .descriptionText {
+	column-count: 2;
+	column-gap: 40px;
+}
+ 
 }
 
 .imgContainer {

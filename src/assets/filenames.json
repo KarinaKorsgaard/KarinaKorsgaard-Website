@@ -20,7 +20,7 @@
         "hero": "hero.jpg",
         "images":["hero.jpg"],
 		"vimeoIDs":[],
-		"movies":["soh_technical.mp4", "soh_video.mp4"]
+		"movies":["soh_video.mp4"]
     },
     "Erdi":{
         "title":"ERDI", 
@@ -148,7 +148,7 @@
         "hero": "screen.png",
         "images":[],
 		"vimeoIDs":[],
-		"movies":["ericsson_movie1.mp4", "ericsson_movie2.mp4"],
+		"movies":["ericsson_movie3.mp4", "ericsson_movie2.mp4"],
 		"useVideoAsHero": true
 	},
 	"PMOS": {
@@ -171,8 +171,8 @@
 			"This is a small datavisualisation exersise on a self-chosen subject. I choose to visualise communication based on data collected by analysing the way we speak and how we communicate. The data is of course subjective and only my own interpretation.", 
 			"The posters was the final outcome visualising a sentence by using colors as mood, shapes representing gestures and graphics representing each word of the sentence."],
 		"tags": "Graphic design",
-        "hero": "poster1.png",
-        "images":["poster1.png","poster2.png","poster3.png","1.jpg","2.jpg", "3.jpg", "4.jpg", "5.jpg","7.jpg"],
+        "hero": "poster3.png",
+        "images":["poster2.png","poster1.png","1.jpg","2.jpg", "3.jpg", "4.jpg", "5.jpg","7.jpg"],
 		"vimeoIDs":[],
 		"movies":[]
 	},

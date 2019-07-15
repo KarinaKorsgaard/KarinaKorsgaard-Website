@@ -54,18 +54,30 @@ export default {
   width: 80%;
   bottom: 20%;
   left: 10px;
-  color: white;
   opacity: 0;
   transition: all 0.5s;
-  mix-blend-mode: difference;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: aliceblue;
+  padding: 10px;
+  color: black;
+  
 }
+nav li:hover,
+ nav li.router-link-active,
+ nav li.router-link-exact-active {
+   cursor: pointer;
+   text-decoration: none !important;
+ }
 .thumbContainer:hover .text {
-  opacity: 1;
+	opacity: 1;
 }
 .thumbContainer {
   width: 200px;
   height: 300px;
 }
+
+
 .thumbContainer .thumbImg {
   background-size: cover;
   background-position: center center;

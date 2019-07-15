@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-
-
     <section class="projectContainer" id="projectContainer">
       <my-router-link id="Kvante" v-on:click.native="toggle(true)"></my-router-link>
       <my-router-link id="SeniorAI" v-on:click.native="toggle(true)"></my-router-link>
@@ -23,8 +21,8 @@
 
     <transition name="slide">
       <div v-if="somethingIsOpen" id="test">
-          <router-view></router-view>
-		  <img id="back" src="./assets/back.png" v-on:click="navigate"/>
+        <router-view></router-view>
+        <img id="back" src="./assets/back.png" v-on:click="navigate" />
       </div>
     </transition>
   </div>
@@ -34,13 +32,14 @@
 import Project from "./components/project.vue";
 import ProjectThumb from "./components/project-thumb.vue";
 import myRouterLink from "./components/routerLink.vue";
-import { setTimeout } from "timers";
+import { setTimeout, clearTimeout } from "timers";
 
 export default {
   name: "app",
   data: function() {
     return {
-      somethingIsOpen: false
+	  somethingIsOpen: false,
+	  timer: null,
     };
   },
   components: {
@@ -67,31 +66,35 @@ export default {
   },
   methods: {
     toggle(param) {
-      this.somethingIsOpen = param;
+		clearTimeout(this.timer)
+      	this.somethingIsOpen = param;
 	},
-	navigate() {
+	navigate() {	
 		this.toggle(false)
 		// give time to animate out
-		setTimeout(() => {this.$router.push('/')}, 500)	
+		this.timer = setTimeout(() => {this.$router.push('/')}, 500)	
 
 		// this.$router.push('Home')
 		// router.push(location, onComplete?, onAbort?)
 	},
-    toggleView(openRef) {
-      if (this.$refs[openRef].isMinified) {
-        for (let ref in this.$refs) {
-          console.log(ref);
-          this.$refs[ref].close();
-        }
-        console.log(this.$refs[openRef]);
-        this.$refs[openRef].open();
-      } else {
-        this.$refs[openRef].close();
-      }
-
-      // this.isMinified = !this.isMinified;
-    }
-  }
+  },
+	watch: {
+    	'$route': function (to, from) {
+			console.log(this.$router.history)
+			/* console.log(to + " " + from)
+				console.log(this.$router.history)
+				console.log(this.$router.history.index)
+				console.log(this.$router.history.stack)
+			*/
+			if (this.$router.history.current.name == 'Home') {
+				this.navigate()
+			}
+			else {
+				this.toggle(true)
+			}
+		// if the current history index isn't at the last position, use 'back' transition
+		}
+	},
 };
 </script>
 
@@ -99,7 +102,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Marcellus&display=swap");
 .slide-enter-active {
-  	transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 .slide-enter-to {
   transform: translate3d(0%, 0, 0);
@@ -109,17 +112,22 @@ export default {
   transition: 0.5s ease-in-out;
 }
 
-#back{
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	width: 50px;
-	z-index: 2;
-	mix-blend-mode: difference;
+#back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  z-index: 2;
+  mix-blend-mode: difference;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#back:hover {
+	transform: scale(1.1);
 }
 
 .slide-leave-to {
-  	transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 body {
   background-color: black;
@@ -138,9 +146,9 @@ h2,
 h3 {
   font-family: "Marcellus", serif;
 }
-h1{
-	font-size: 2.5em;
-	font-size-adjust: inherit;
+h1 {
+  font-size: 2.5em;
+  font-size-adjust: inherit;
 }
 .projectContainer {
   display: flex;
