@@ -72,7 +72,7 @@ export default {
 	navigate() {
 		this.toggle(false)
 		// give time to animate out
-		setTimeout(() => {this.$router.push('')}, 500)	
+		setTimeout(() => {this.$router.push('/')}, 500)	
 
 		// this.$router.push('Home')
 		// router.push(location, onComplete?, onAbort?)
