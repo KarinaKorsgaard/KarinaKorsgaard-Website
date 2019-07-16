@@ -143,7 +143,7 @@
 	},
 	"Ericsson": {
 		"title":"Ericsson Conference", 
-		"description": ["Visuals made to react to audio at an Ericsson conference in Tallin"],
+		"description": ["Visuals made to react to audio at an Ericsson conference in Tallinn"],
 		"tags": "C++, fft analysis, Audio reactive visuals, Projection mapping",
         "hero": "screen.png",
         "images":[],
