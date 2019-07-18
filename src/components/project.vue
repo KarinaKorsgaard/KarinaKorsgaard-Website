@@ -2,54 +2,55 @@
   <section>
     <!-- thumbnail display -->
 
- 
-      <!-- main display -->
-      <div v-if="loaded" class="projectBg">
-        <div class="projectDrawer">
-          <div class="description" ref="description">
-            <h1>{{title}}</h1>
+    <!-- main display -->
+
+    <div class="projectDrawer" v-if="loaded">
+      <div
+        v-if="!useVideoAsHero"
+        class="hero"
+        v-bind:style="{ 'background-image': 'url(' + getHeroFileName() + ')' }"
+      />
+      <video v-else controls autoplay loop muted class="heroVideo" width="100%">
+        <source :src="getHeroFileName()" type="video/mp4" />
+      </video>
+      <div class="drawerContent">
+        <h1>{{title}}</h1>
+        <div class="about">
+          <div class="clientAndTags">
+            <div id="client">{{client}}</div>
             <div id="tags">{{tags}}</div>
-
-
-            <img v-if="!useVideoAsHero" class="hero" :src="getHeroFileName()" />
-			<video v-else controls autoplay loop muted class="hero" width="100%">
-                <source :src="getHeroFileName()" type="video/mp4" />
-              </video>
-
-            <div class="about">
-              <h3>About the project</h3>
-			  <div class="descriptionText">
-              <div v-for="item of description" v-bind:key="item">
-                {{item}}
-                <br />
-                <br />
-              </div>
-			  </div>
-            </div>
           </div>
 
-          <div class="videoContainer">
-            <div v-for="(item, index) of vimeoIDs" v-bind:key="item">
-              <vueVimeoPlayer class="movie" :video-id="vimeoIDs[index]" :player-width="videoWidth"></vueVimeoPlayer>
-            </div>
-          </div>
-
-          <div class="videoContainer">
-            <div v-for="(item, index) of movies" v-bind:key="item">
-              <video controls autoplay loop muted class="movie" width="100%">
-                <source :src="getFileMovieName(index)" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-
-          <div class="imgContainer">
-            <div v-for="(item, index) of images" v-bind:key="item">
-              <img class="images" :src="getFileName(index)" />
+          <div class="description">
+            <div v-for="item of description" v-bind:key="item">
+              {{item}}
+              <br />
+              <br />
             </div>
           </div>
         </div>
-      </div>
 
+        <div class="videoContainer">
+          <div v-for="(item, index) of vimeoIDs" v-bind:key="item">
+            <vueVimeoPlayer class="movie" :video-id="vimeoIDs[index]" :player-width="videoWidth"></vueVimeoPlayer>
+          </div>
+        </div>
+
+        <div class="videoContainer">
+          <div v-for="(item, index) of movies" v-bind:key="item">
+            <video controls autoplay loop muted class="movie" width="100%">
+              <source :src="getFileMovieName(index)" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <div class="imgContainer">
+          <div v-for="(item, index) of images" v-bind:key="item">
+            <img class="images" :src="getFileName(index)" />
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -57,115 +58,139 @@
 import { vueVimeoPlayer } from "vue-vimeo-player";
 import projectInfo from "../assets/filenames.json";
 export default {
-	name: "Project",
-	data: function() {
+  name: "Project",
+  data: function() {
     return {
-		isMinified: false,
-		images: [],
-		vimeoIDs: [],
-		movies: [],
-		title: "",
-		tags: "",
-		hero: "",
-		loaded: false,
-		description: [],
-		videoWidth: 0,
-		useVideoAsHero: false,
+      isMinified: false,
+      images: [],
+      vimeoIDs: [],
+      movies: [],
+      title: "",
+      tags: "",
+      hero: "",
+      client: "",
+      loaded: false,
+      description: [],
+      videoWidth: 0,
+      useVideoAsHero: false
     };
-},
-mounted() {
-	this.readJson()
-},
-props: {
-	identifier: String,
-},
-watch: {
-    identifier: function (val, oldVal) {
-		// console.log('new: %s, old: %s', val, oldVal)
-		this.loaded = false;
-		this.readJson()
-		this.loaded = true;
-	},
-},
-components: {
-	vueVimeoPlayer
-},
-methods: {
-	readJson() {
-		// console.log(this.identifier)
-		// console.log(this.identifier)
-		const json = projectInfo[this.identifier];
-		// console.log(json[this.identifier].filenames)
-		this.images = json.images;
-		this.movies = json.movies;
-		this.vimeoIDs = json.vimeoIDs;
-		this.description = json.description;
-		this.title = json.title;
-		this.tags = json.tags;
-		this.hero = json.hero;
-		this.videoWidth = window.innerWidth * 0.8 * 0.8;
-		console.log(this.videoWidth);
-		this.loaded = true;
+  },
+  mounted() {
+    this.readJson();
+  },
+  props: {
+    identifier: String
+  },
+  watch: {
+    identifier: function(val, oldVal) {
+      // console.log('new: %s, old: %s', val, oldVal)
+      this.loaded = false;
+      this.readJson();
+      this.loaded = true;
+    }
+  },
+  components: {
+    vueVimeoPlayer
+  },
+  methods: {
+    readJson() {
+      // console.log(this.identifier)
+      // console.log(this.identifier)
+      const json = projectInfo[this.identifier];
+      // console.log(json[this.identifier].filenames)
+      this.images = json.images;
+      this.movies = json.movies;
+      this.vimeoIDs = json.vimeoIDs;
+      this.description = json.description;
+      this.title = json.title;
+      this.tags = json.tags;
+      this.hero = json.hero;
+      this.client = json.client;
+      this.videoWidth = window.innerWidth * 0.8 * 0.8;
+      console.log(this.videoWidth);
+      this.loaded = true;
 
-		if (json.useVideoAsHero != undefined) {
-			this.useVideoAsHero = true
-			this.hero = this.movies[0]
-			this.movies = this.movies.slice(1, this.movies.length)
-		}
-	},
+      if (json.useVideoAsHero != undefined) {
+        this.useVideoAsHero = true;
+        this.hero = this.movies[0];
+        this.movies = this.movies.slice(1, this.movies.length);
+      }
+    },
     getFileName(i) {
-      	// console.log("../assets/" + this.identifier + "/" + this.images[i]);
-      	return require("../assets/" + this.identifier + "/" + this.images[i]);
+      // console.log("../assets/" + this.identifier + "/" + this.images[i]);
+      return require("../assets/" + this.identifier + "/" + this.images[i]);
     },
     getFileMovieName(i) {
-	  	// console.log("../assets/" + this.identifier + "/" + this.images[i]);
-	  	console.log("../assets/" + this.identifier + "/" + this.movies[i])
-	  	return require("../assets/" + this.identifier + "/" + this.movies[i]);
-	  
+      // console.log("../assets/" + this.identifier + "/" + this.images[i]);
+      console.log("../assets/" + this.identifier + "/" + this.movies[i]);
+      return require("../assets/" + this.identifier + "/" + this.movies[i]);
     },
     getHeroFileName(str) {
-      	// console.log("../assets/" + this.identifier + "/" + this.hero);
-      	return require("../assets/" + this.identifier + "/" + this.hero);
+      // console.log("../assets/" + this.identifier + "/" + this.hero);
+      return require("../assets/" + this.identifier + "/" + this.hero);
     },
     getVimeoID(i) {
-      	return "https://player.vimeo.com/video/" + this.vimeoIDs[i];
+      return "https://player.vimeo.com/video/" + this.vimeoIDs[i];
     },
     open() {
-      	this.isMinified = false;
+      this.isMinified = false;
     },
     close() {
-      	this.isMinified = true;
+      this.isMinified = true;
     }
-}
+  }
 };
 </script>
 
 <style scoped>
-
-.projectBg {
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  z-index: 1;
-  color: #44433E;
-  text-align: center;
-}
-
-
-
 .projectDrawer {
+  position: relative;
   overflow-y: scroll;
-  height: 100vh;
+  height: 90vh;
+  margin: 2%;
+  background-color: white;
+  border: solid 1px;
+  border-color: black;
+  color: black;
 }
-
+.drawerContent {
+  width: 90%;
+  margin: 5%;
+}
 
 .hero {
-  max-height: 90vh;
-  max-width: 100%;
+  height: 60vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
 }
+.heroVideo {
+  max-width: 100%;
+  max-height: 100vh;
+}
+.about {
+  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.about .description {
+  width: 60%;
+  min-width: 300px;
+  font-size: 18px;
+}
+.about .clientAndTags {
+  width: 35%;
+  min-width: 300px;
+  font-size: 24px;
+}
+
+#client {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .videoContainer {
   width: 100%;
   text-align: center;
@@ -177,31 +202,15 @@ methods: {
   max-height: 80vh;
 }
 
-#tags {
-  font-size: 0.9em;
-  color: rgb(80, 79, 73);
-  margin-bottom: 20px;
+.videoContainer {
+  width: 100%;
+  text-align: center;
 }
-.description {
-  /* position: fixed;
-	mix-blend-mode: difference;
-	transition: all 0.5s;*/
 
+.videoContainer .movie {
+  width: 80%;
   margin: 10%;
-}
-.about {
-	text-align: left;
-  	width: 100%;
-}
-
-
-@media (min-width: 635px){
- 
-.about .descriptionText {
-	column-count: 2;
-	column-gap: 40px;
-}
- 
+  max-height: 80vh;
 }
 
 .imgContainer {

@@ -2,12 +2,14 @@
   <section v-if="loaded">
     <!-- thumbnail display -->
     <div class="thumbContainer">
-		
+		      <div class="title">{{title}}</div>
+	  <div class="tags">{{tags}}</div>
+	  <div class="client">{{client}}</div>
       <div
         class="thumbImg"
         v-bind:style="{ 'background-image': 'url(' + getHeroFileName() + ')' }"
       />
-      <div class="text">{{title}}</div>
+
     </div>
   </section>
 </template>
@@ -20,7 +22,9 @@ export default {
     return {
       title: "",
       hero: "",
-      loaded: false
+	  loaded: false,
+	  client: "",
+	  tags: "",
     };
   },
   mounted() {
@@ -31,7 +35,9 @@ export default {
 
     this.title = json.title;
     this.loaded = true;
-    this.hero = json.hero;
+	this.hero = json.hero;
+	this.client = json.client;
+	this.tags = json.tags;
   },
   props: {
 	identifier: String,
@@ -39,7 +45,7 @@ export default {
   components: {
   },
   methods: {
-    getHeroFileName(str) {
+    getHeroFileName() {
       // console.log("../assets/" + this.identifier + "/" + this.hero);
       return require("../assets/" + this.identifier + "/" + this.hero);
     }
@@ -48,45 +54,46 @@ export default {
 </script>
 
 <style scoped>
-
-.thumbContainer .text {
-  position: relative;
-  width: 80%;
-  bottom: 20%;
-  left: 10px;
-  opacity: 0;
-  transition: all 0.5s;
-  font-weight: bold;
-  font-size: 1.2em;
-  background-color: aliceblue;
-  padding: 10px;
-  color: black;
-  
-}
-nav li:hover,
- nav li.router-link-active,
- nav li.router-link-exact-active {
-   cursor: pointer;
-   text-decoration: none !important;
- }
-.thumbContainer:hover .text {
-	opacity: 1;
-}
 .thumbContainer {
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 450px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px 1px 5px 1px;
+  border-color: #333333;
+  color:#333333;
+  position: relative;
 }
+.thumbContainer .title {
 
+
+  margin: 25px 25px;
+  font-weight: bold;
+  font-size: 1.3em;
+line-height: 0.5em;
+  font-style: normal;
+  text-decoration: none;
+}
+.thumbContainer .tags {
+	margin: 0px 25px;
+	font-size: 14px;
+	height: 45px;
+	overflow: hidden;
+}
+.thumbContainer .client {
+	margin: 10px 25px;
+	font-weight: bold;
+	font-size: 14px;
+}
 
 .thumbContainer .thumbImg {
   background-size: cover;
   background-position: center center;
-  width: 100%;
-  height: 100%;
-  filter: none;
-  transition: all 0.5s;
+  width: 250px;
+  height: 250px;
+  margin: 25px;
+	position: absolute;
+	bottom: 25px;
 }
-.thumbContainer:hover .thumbImg {
-  filter: grayscale(100%) brightness(50%);
-}
+
 </style>

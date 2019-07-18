@@ -1,7 +1,7 @@
 <template>
 <div>
-  <router-link
-    :to="{ name: 'Projects', params: {identifier: id}, props: {identifier: id} }"
+  <router-link class="link"
+    :to="{ name: 'Projects', params: {identifier: id}, props: {identifier: id} } "
   >
     <project-thumb :identifier=id />
   </router-link>
@@ -27,4 +27,6 @@ export default {
 </script>
 
 <style scoped>
+
+
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div id="app">
+	 
+
     <section class="projectContainer" id="projectContainer">
+		 <h1 id="myName">Karina Korsgaard</h1>
       <my-router-link id="Kvante" v-on:click.native="toggle(true)"></my-router-link>
       <my-router-link id="SeniorAI" v-on:click.native="toggle(true)"></my-router-link>
       <my-router-link id="Erdi" v-on:click.native="toggle(true)"></my-router-link>
@@ -99,7 +102,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Marcellus&display=swap");
 .slide-enter-active {
   transform: translate3d(100%, 0, 0);
@@ -111,11 +114,15 @@ export default {
 .slide-leave-active {
   transition: 0.5s ease-in-out;
 }
-
+#myName {
+	width: 80%;
+	justify-self: left;
+	margin-left: -50px;
+}
 #back {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5%;
+  right: 5%;
   width: 50px;
   z-index: 2;
   mix-blend-mode: difference;
@@ -130,25 +137,19 @@ export default {
   transform: translate3d(100%, 0, 0);
 }
 body {
-  background-color: black;
+
 }
-#test {
-  width: 100%;
-  top: 0px;
-  position: fixed;
-  right: 0px;
-  height: 100vh;
-  z-index: 2;
-}
+
 
 h1,
 h2,
 h3 {
-  font-family: "Marcellus", serif;
+  font-family: 'Poppins', sans-serif;
 }
-h1 {
-  font-size: 2.5em;
-  font-size-adjust: inherit;
+h1{
+	text-align: left;
+	font-weight: bolder;
+	font-size: 4em;
 }
 .projectContainer {
   display: flex;
@@ -157,11 +158,20 @@ h1 {
 }
 
 #app {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
-  color: white;
+  color: #333;
   margin-top: 60px;
+  
+}
+
+.link{
+	text-decoration: none !important;
+	cursor: pointer;
+}
+.link:hover {
+	color:black;
 }
 </style>

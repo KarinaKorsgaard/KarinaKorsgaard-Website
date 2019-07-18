@@ -8,7 +8,8 @@
 		"images":["03_gameplay_screenshot.jpg", "04_gameplay_screenshot.jpg",
 			"05_highscore.jpg"],
 		"vimeoIDs":[],
-		"movies":["Quantum Kate AR Game - case video.mp4","01_gameplay.mp4", "02_room.mp4"]
+		"movies":["Quantum Kate AR Game - case video.mp4","01_gameplay.mp4", "02_room.mp4"],
+		"client": "Syddansk Universitet"
 	},
     "Sydney":{
         "title":"Inside the sails", 
@@ -20,7 +21,8 @@
         "hero": "hero.jpg",
         "images":["hero.jpg"],
 		"vimeoIDs":[],
-		"movies":["soh_video.mp4"]
+		"movies":["soh_video.mp4"],
+		"client": "Eksperiments"
     },
     "Erdi":{
         "title":"ERDI", 
@@ -40,7 +42,8 @@
 		"images":[],
 		"unused": ["components.png","erdiflow-03.png"], 
 		"vimeoIDs":["230812086"],
-		"movies":[]
+		"movies":[],
+		"client": "CIID"
 	},
 	"12Movements": {
 		"title":"12 Movements", 
@@ -52,7 +55,8 @@
         "hero": "hero.jpg",
         "images":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg"],
 		"vimeoIDs":["97214149"],
-		"movies":[]
+		"movies":[],
+		"client": "Erinevate Tubade Klubi"
 	},
 	"Fazer": {
 		"title":"Fazer Candy land", 
@@ -66,10 +70,11 @@
         "hero": "hero.jpg",
         "images":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.png"],
 		"vimeoIDs":[],
-		"movies":[]
+		"movies":[],
+		"client": "Fazer"
 	},
 	"SeniorAI": {
-		"title":"Senior AI - The drinks robot", 
+		"title":"Senior AI", 
 		"description": [
 			"The bartender uses a webcam and openPose to estimate a human skeleton. This data is then sent through a random forrest classifier trained to recognise a number of different poses", 
 			
@@ -81,7 +86,8 @@
         "images":["pose.png"],
 		"vimeoIDs":[],
 		"movies":["senior_party.mp4", "senior_users.mp4", "senior_production.mp4"],
-		"useVideoAsHero":true
+		"useVideoAsHero":true,
+		"client": "MolaLAB"
 	},
 	"Experiments": {
 		"title":"Random code doodles", 
@@ -92,7 +98,8 @@
 		"vimeoIDs":[],
 		"unused":["glitch.mp4"],
 		"movies":["GPU_Particles.mp4", "dougnut.mp4"],
-		"useVideoAsHero": true
+		"useVideoAsHero": true,
+		"client": "Experiment"
 	},
 	"Tree": {
 		"title":"TREE.O", 
@@ -101,7 +108,8 @@
         "hero": "hero2.jpeg",
         "images":["2.jpg", "1.png"],
 		"vimeoIDs":[],
-		"movies":[]
+		"movies":[],
+		"client": "Dansk Arkitektur Center"
 	},
 	"Mirror": {
 		"title":"The Digital Mirror", 
@@ -112,7 +120,8 @@
         "images":[],
 		"vimeoIDs":[],
 		"movies":["mirror_movie1.mp4", "mirror_movie2.mp4"],
-		"useVideoAsHero": true
+		"useVideoAsHero": true,
+		"client": "Dansk Arkitektur Center"
 	},
 	"Bymodel": {
 		"title":"Bymodellen", 
@@ -123,7 +132,8 @@
         "images":["dac_bymodel_1.jpg", "dac_bymodel_2.jpg"],
 		"vimeoIDs":[],
 		"movies":["dac_bymodel_vid.mp4"],
-		"useVideoAsHero":true
+		"useVideoAsHero":true,
+		"client": "Dansk Arkitektur Center"
 	},
 	"Ba": {
 		"title":"Playing Patterns", 
@@ -139,7 +149,8 @@
         "hero": "hero.png",
         "images":["1.jpg", "2.png", "3.png", "4.png", "5.png", "6.png"],
 		"vimeoIDs":["68626959"],
-		"movies":[]
+		"movies":[],
+		"client": "Bachelor thesis"
 	},
 	"Ericsson": {
 		"title":"Ericsson Conference", 
@@ -149,10 +160,11 @@
         "images":[],
 		"vimeoIDs":[],
 		"movies":["ericsson_movie3.mp4", "ericsson_movie2.mp4"],
-		"useVideoAsHero": true
+		"useVideoAsHero": true,
+		"client": "Ericsson"
 	},
 	"PMOS": {
-		"title":"Passio Musica Open Source", 
+		"title":"Passio Musica", 
 		"description": [
 			"Passio Musicae Open Source is an interactive audio installation and sonification of the Sibelius Monument, exhibited at Ateneum, Helsinki. The exhibition is placed in a room of the dimensions 8x10 meters, of which it takes up all of the space. The sounds are constructed from the actual physical dimensions of the 569 steel tubes of the original monument. The idea is that the installation enables the visitor to explore the hidden sounds of the monument. by moving around in the exhibition space.", 
 
@@ -162,11 +174,12 @@
         "hero": "PMMOS4.jpg",
         "images":["PMMOS2.jpg", "PMMOS3.jpg", "PMMOS5.jpg"],
 		"vimeoIDs":["122469214"],
-		"movies":[]
+		"movies":[],
+		"client": "Finnish National Gallery"
 	},
 
 	"Poster": {
-		"title":"Visualising communication", 
+		"title":"Poster design", 
 		"description": [
 			"This is a small datavisualisation exersise on a self-chosen subject. I choose to visualise communication based on data collected by analysing the way we speak and how we communicate. The data is of course subjective and only my own interpretation.", 
 			"The posters was the final outcome visualising a sentence by using colors as mood, shapes representing gestures and graphics representing each word of the sentence."],
@@ -174,10 +187,11 @@
         "hero": "poster3.png",
         "images":["poster2.png","poster1.png","1.jpg","2.jpg", "3.jpg", "4.jpg", "5.jpg","7.jpg"],
 		"vimeoIDs":[],
-		"movies":[]
+		"movies":[],
+		"client": "Eksperiments"
 	},
 	"MADE": {
-		"title":"MADE by the Sydney Opera house", 
+		"title":"MADE", 
 		"description": [
 			"The project is based on a multidisciplinary and iterative design process, where different scientific theoretical methods as architectural, engineering and design methods are applied. The aim of the project is to create a unified expression of the Sydney Opera House and deepen the visitor experience. The final concept was developed on the basis of having identified 3 main reasons people come to the house. To see the house itself, to see a show, or to enjoy the view while eating at one of the house restaurants and bars. This resulted in a concept implementing both architectural, engineering and design solutions to emphasise this trinity:", 
 
@@ -192,7 +206,8 @@
         "hero": "hero.jpg",
         "images":["SOH0.jpg", "SOH1.jpg", "SOH2.jpg", "SOH3.jpg", "SOH4.jpg", "SOH5.jpg"],
 		"vimeoIDs":[],
-		"movies":[]
+		"movies":[],
+		"client": "Exchange Programme"
 	},
 
 	"Ma": {
@@ -205,6 +220,7 @@
         "hero": "hero.jpg",
         "images":["this1.png", "this2.png", "this3.png", "this4.png","this5.png"],
 		"vimeoIDs":[],
-		"movies":[]
+		"movies":[],
+		"client": "Erinevate Tubade Klubi"
 	}
 }
