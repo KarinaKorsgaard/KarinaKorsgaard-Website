@@ -81,7 +81,7 @@
 			"When the user steps in, the bartender selects 3 random poses that the user needs to match within a certain time span. If the user succeeds, an arduino in combination with a ball valve serves a drink from a cocktail dispensor.",
 			
 			"Using machine learning allowed me to quickly test which set of poses were the right ones to teach the bartender."],
-		"tags": "C++, openPose, Supervised Machine Learning, Installation",
+		"tags": "C++, openPose, Supervised Machine Learning, electronics, Arduino, Installation",
         "hero": "hero.png",
         "images":["pose.png"],
 		"vimeoIDs":[],
