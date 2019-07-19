@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-	 
+	
 
     <section class="projectContainer" id="projectContainer">
-		 <h1 id="myName">Karina Korsgaard</h1>
+		 <div id="myName">
+			 <h1>Karina Korsgaard</h1>
+			 <div class = "WIP">Site is work in progress</div>
+		 </div>
+		
+		 
       <my-router-link id="Kvante" v-on:click.native="toggle(true)"></my-router-link>
       <my-router-link id="SeniorAI" v-on:click.native="toggle(true)"></my-router-link>
       <my-router-link id="Erdi" v-on:click.native="toggle(true)"></my-router-link>
@@ -104,6 +109,27 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Marcellus&display=swap");
+
+
+#myName {
+	width: 332px;
+	margin: 10px;
+}
+#myName h1{
+	margin-left:15px;
+}
+.WIP {
+	width: 300px;
+	height: 50px;
+	border: 1px solid black;
+	background-color: black;
+	color:white;
+	text-align: center;
+	line-height: 50px;
+	margin-top:-40px;
+	margin-left:15px;
+}
+
 .slide-enter-active {
   transform: translate3d(100%, 0, 0);
 }
@@ -114,10 +140,14 @@ export default {
 .slide-leave-active {
   transition: 0.5s ease-in-out;
 }
-#myName {
-	width: 80%;
-	justify-self: left;
-	margin-left: -50px;
+
+#test {
+  width: 100%;
+  top: 0px;
+  position: fixed;
+  right: 0px;
+  height: 100vh;
+  z-index: 2;
 }
 #back {
   position: fixed;
@@ -149,7 +179,7 @@ h3 {
 h1{
 	text-align: left;
 	font-weight: bolder;
-	font-size: 4em;
+	font-size: 3.5em;
 }
 .projectContainer {
   display: flex;

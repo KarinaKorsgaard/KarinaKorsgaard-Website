@@ -4,17 +4,17 @@
 
     <!-- main display -->
 
-    <div class="projectDrawer" v-if="loaded">
-      <div
-        v-if="!useVideoAsHero"
-        class="hero"
-        v-bind:style="{ 'background-image': 'url(' + getHeroFileName() + ')' }"
-      />
-      <video v-else controls autoplay loop muted class="heroVideo" width="100%">
-        <source :src="getHeroFileName()" type="video/mp4" />
-      </video>
-      <div class="drawerContent">
-        <h1>{{title}}</h1>
+      <div class="projectDrawer" v-if="loaded">
+		<div
+			v-if="!useVideoAsHero"
+        	class="hero"
+        	v-bind:style="{ 'background-image': 'url(' + getHeroFileName() + ')' }"
+      	/>
+        <video v-else controls autoplay playsinline loop muted class="heroVideo" >
+          <source :src="getHeroFileName()" type="video/mp4" />
+        </video>
+		<div class="drawerContent">
+		<h1>{{title}}</h1>
         <div class="about">
           <div class="clientAndTags">
             <div id="client">{{client}}</div>
@@ -37,10 +37,11 @@
         </div>
 
         <div class="videoContainer">
-          <div v-for="(item, index) of movies" v-bind:key="item">
-            <video controls autoplay loop muted class="movie" width="100%">
+          <div v-for="(item, index) of movies" v-bind:key="item" class="entry">
+            <video controls autoplay playsinline loop muted class="movie" max-width="100%">
               <source :src="getFileMovieName(index)" type="video/mp4" />
             </video>
+			<p v-if="item.text!=''">{{item.text}}</p>
           </div>
         </div>
 
@@ -50,7 +51,7 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
   </section>
 </template>
 
@@ -67,8 +68,8 @@ export default {
       movies: [],
       title: "",
       tags: "",
-      hero: "",
-      client: "",
+	  hero: "",
+	  client: "",
       loaded: false,
       description: [],
       videoWidth: 0,
@@ -104,8 +105,8 @@ export default {
       this.description = json.description;
       this.title = json.title;
       this.tags = json.tags;
-      this.hero = json.hero;
-      this.client = json.client;
+	  this.hero = json.hero;
+	  this.client = json.client;
       this.videoWidth = window.innerWidth * 0.8 * 0.8;
       console.log(this.videoWidth);
       this.loaded = true;
@@ -117,17 +118,18 @@ export default {
       }
     },
     getFileName(i) {
-      // console.log("../assets/" + this.identifier + "/" + this.images[i]);
-      return require("../assets/" + this.identifier + "/" + this.images[i]);
+	  // console.log("../assets/" + this.identifier + "/" + this.images[i]);
+	  console.log("../assets/" + this.identifier + "/" + this.images[i].src);
+	  return require("../assets/" + this.identifier + "/" + this.images[i].src);
     },
     getFileMovieName(i) {
-      // console.log("../assets/" + this.identifier + "/" + this.images[i]);
-      console.log("../assets/" + this.identifier + "/" + this.movies[i]);
-      return require("../assets/" + this.identifier + "/" + this.movies[i]);
+		 console.log("../assets/" + this.identifier + "/" + this.movies[i].src);
+      return require("../assets/" + this.identifier + "/" + this.movies[i].src);
     },
     getHeroFileName(str) {
       // console.log("../assets/" + this.identifier + "/" + this.hero);
-      return require("../assets/" + this.identifier + "/" + this.hero);
+	  if (!this.useVideoAsHero) return require("../assets/" + this.identifier + "/" + this.hero);
+	  else return require("../assets/" + this.identifier + "/" + this.hero.src);
     },
     getVimeoID(i) {
       return "https://player.vimeo.com/video/" + this.vimeoIDs[i];
@@ -143,30 +145,36 @@ export default {
 </script>
 
 <style scoped>
+
 .projectDrawer {
-  position: relative;
+	position: relative;
+	z-index: 2;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 90vh;
   margin: 2%;
   background-color: white;
   border: solid 1px;
   border-color: black;
-  color: black;
+  color:black;
+  font-size: calc(18px + 8 * ((100vw - 320px) / 1280));
+
 }
 .drawerContent {
-  width: 90%;
-  margin: 5%;
+	width: 90%;
+	margin: 5%;
 }
+
 
 .hero {
   height: 60vh;
   width: 100%;
-  background-size: cover;
+	background-size: cover;
   background-position: center center;
 }
-.heroVideo {
-  max-width: 100%;
-  max-height: 100vh;
+.heroVideo{
+	max-width: 100%;
+	max-height: 100vh; 
 }
 .about {
   text-align: left;
@@ -176,19 +184,41 @@ export default {
   justify-content: space-between;
 }
 .about .description {
-  width: 60%;
-  min-width: 300px;
-  font-size: 18px;
+	width: 60%;
+	min-width: 300px;
 }
-.about .clientAndTags {
-  width: 35%;
-  min-width: 300px;
-  font-size: 24px;
+.about .clientAndTags{
+	width: 35%;
+	min-width: 300px;
+	font-size: 24px;
 }
 
 #client {
-  font-size: 1.2em;
-  font-weight: bold;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.videoContainer {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.videoContainer .entry{
+ display:flex;
+ margin-top: 30px;
+}
+.videoContainer .entry p{
+ width: 250px;
+ text-align: left;
+ align-self: center;
+ margin: 15px;
+}
+
+.videoContainer .entry .movie {
+  max-height: 80vh;
+	margin: 10px;
 }
 
 .videoContainer {
@@ -196,22 +226,6 @@ export default {
   text-align: center;
 }
 
-.videoContainer .movie {
-  width: 80%;
-  margin: 10%;
-  max-height: 80vh;
-}
-
-.videoContainer {
-  width: 100%;
-  text-align: center;
-}
-
-.videoContainer .movie {
-  width: 80%;
-  margin: 10%;
-  max-height: 80vh;
-}
 
 .imgContainer {
   width: 100%;
@@ -232,4 +246,5 @@ export default {
   max-width: 80%;
   position: relative;
 }
+
 </style>

@@ -5,10 +5,16 @@
 			"Augmented reality game to teach children about quantum physics. In this project my role was concept design, prototyping and development"],
 		"tags": "C#, Unity3D, Linq, ARCore, ARKit, Quantum Chromodynamics",
 		"hero": "06_feature_graphic.png",
-		"images":["03_gameplay_screenshot.jpg", "04_gameplay_screenshot.jpg",
-			"05_highscore.jpg"],
+		"images":[],
 		"vimeoIDs":[],
-		"movies":["Quantum Kate AR Game - case video.mp4","01_gameplay.mp4", "02_room.mp4"],
+		"movies":[
+			{"src":"Quantum Kate AR Game - case video.mp4", "text":""},
+			{"src":"GameRules_1_findSpot.mp4", "text":"Find a good spot for playing, where furniture is not in the way."},
+			{"src":"GameRules_2_connectQuarks.mp4", "text":"Connect quarks that fit together to create particles."},
+			{"src":"GameRules_3_particles.mp4", "text":"Unlock all particles and and beat your highscore."},
+			{"src":"01_room.mp4", "text":"The game center is an interactive 360 view of Quantum Kate’s room. From her room you can start the game, learn more about quarks and view the highscore board."},
+			{"src":"02_quarks.mp4", "text":"The goal of the game is to discover as many particles as possible by connecting quarks! Set up as an infinite puzzle game, children almost accidentally learn about Quantum Chromodynamics while playing the game! Genius - right?"},
+			{"src":"03_achievements.mp4", "text":"All particles discovered during the game are saved in an interactive highscore board. On the high score board you can learn more about each individual particle you discovered. The more particles you collect, the more you level up."}],
 		"client": "Syddansk Universitet"
 	},
     "Sydney":{
@@ -19,9 +25,10 @@
             "My role was to design the light and develop an interactive prototype that both visualises the installation and would be able to map the LED's. The visualisation would serve as a tool for the rest of the group, enabeling them to develop visuals for the installation"],
         "tags": "DMX512 over Art-Net, C++, openFrameworks, Lightinstallation, procedural design",
         "hero": "hero.jpg",
-        "images":["hero.jpg"],
+        "images":[{"src":"hero.jpg", "text":""}],
 		"vimeoIDs":[],
-		"movies":["soh_video.mp4"],
+		"movies":[
+			{"src":"soh_video.mp4", "text":"Screen cast of the app I created to visualise the LED's"}],
 		"client": "Eksperiments"
     },
     "Erdi":{
@@ -52,8 +59,20 @@
 
 			"For this performance me and Taavi Varm developed 12 interconnected tangible userinterfaces used by the audience to control the performance created by Cabaret Rhizome."],
 		"tags": "C++, openFrameworks, Digital Signal Processing, Tangible interfaces",
-        "hero": "hero.jpg",
-        "images":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg"],
+		"hero": "hero.jpg",
+		"images":[
+			{"src":"1.jpg", "text":""},
+			{"src":"2.jpg", "text":""},
+			{"src":"3.jpg", "text":""},
+			{"src":"4.jpg", "text":""},
+			{"src":"5.jpg", "text":""},
+			{"src":"6.jpg", "text":""},
+			{"src":"7.jpg", "text":""},
+			{"src":"8.jpg", "text":""},
+			{"src":"9.jpg", "text":""},
+			{"src":"10.jpg", "text":""},
+			{"src":"10.jpg", "text":""}
+		],
 		"vimeoIDs":["97214149"],
 		"movies":[],
 		"client": "Erinevate Tubade Klubi"
@@ -68,7 +87,14 @@
 			"Final expression became more child-friendly and playful, using the visual elements from the physical room."],
 		"tags": "C++, openFrameworks, Open Sound Control, Installation, KinectV2",
         "hero": "hero.jpg",
-        "images":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.png"],
+        "images":[
+			{"src":"1.jpg", "text":""},
+			{"src":"2.jpg", "text":""},
+			{"src":"3.jpg", "text":""},
+			{"src":"4.jpg", "text":""},
+			{"src":"5.jpg", "text":""},
+			{"src":"6.png", "text":""}
+		],
 		"vimeoIDs":[],
 		"movies":[],
 		"client": "Fazer"
@@ -83,21 +109,33 @@
 			"Using machine learning allowed me to quickly test which set of poses were the right ones to teach the bartender."],
 		"tags": "C++, openPose, Supervised Machine Learning, electronics, Arduino, Installation",
         "hero": "hero.png",
-        "images":["pose.png"],
+        "images":[
+			{"src":"pose.png", "text":"OpenPose skeleton model data is sent to a random forest classifier and interpreted as 1 of 9 poses. If the user hits 3 in row, a drink it served"}
+		],
 		"vimeoIDs":[],
-		"movies":["senior_party.mp4", "senior_users.mp4", "senior_production.mp4"],
+		"movies":[
+			{"src":"senior_party.mp4", "text":"How it works"},
+			{"src":"senior_users.mp4", "text":"Shots of the guests from the party"},
+			{"src":"senior_production.mp4", "text":"During prototyping"}
+		],
 		"useVideoAsHero":true,
 		"client": "MolaLAB"
 	},
 	"Experiments": {
-		"title":"Random code doodles", 
+		"title":"Code doodles", 
 		"description": ["Experiments with shaders, GPU particles and generated visuals. Mostly done for fun:)"],
 		"tags": "C++, GLSL",
         "hero": "hero.jpg",
-        "images":["glitch1.png","glitch2.png","glitch3.png","glitch4.png"],
+		"images":[
+			{"src":"glitch1.png", "text":""},
+			{"src":"glitch2.png", "text":""},
+			{"src":"glitch3.png", "text":""},
+			{"src":"glitch3.png", "text":""}],
 		"vimeoIDs":[],
 		"unused":["glitch.mp4"],
-		"movies":["GPU_Particles.mp4", "dougnut.mp4"],
+		"movies":[
+			{"src":"GPU_Particles.mp4", "text":""},
+			{"src":"dougnut.mp4", "text":""}],
 		"useVideoAsHero": true,
 		"client": "Experiment"
 	},
@@ -106,7 +144,9 @@
 		"description": ["TREE.0 is an urban experiment currently in progress on Vester Voldgade in Copenhagen. It explores how data can be used subtly to create new activities and gatherings. The first prototype is manifested as a 6m high rusten steel tree with sunk-in light fixtures and a small sensor box to capture date about the environment.", "My role was to develop interactive visuals for the LED's, interacting with the sensors of the tree.", "https://www.berlingske.dk/kultur/traeet-der-spiller-naar-du-danser"],
 		"tags": "C++, GLSL",
         "hero": "hero2.jpeg",
-        "images":["2.jpg", "1.png"],
+        "images":[
+			{"src":"2.jpg", "text":""},
+			{"src":"1.png", "text":""}],
 		"vimeoIDs":[],
 		"movies":[],
 		"client": "Dansk Arkitektur Center"
@@ -119,7 +159,9 @@
 		"unused": ["hero.png"],
         "images":[],
 		"vimeoIDs":[],
-		"movies":["mirror_movie1.mp4", "mirror_movie2.mp4"],
+		"movies":[
+			{"src":"mirror_movie1.mp4", "text":""},
+			{"src":"mirror_movie2.mp4", "text":""}],
 		"useVideoAsHero": true,
 		"client": "Dansk Arkitektur Center"
 	},
@@ -129,9 +171,11 @@
 			"The 'Bymodel' (city model) shows an overview of the street Vester Voldgade in Copenhagen. Each marked spot is fed with live login data from facebook and twitter visualising the current activity. The 'Bymodel' was part of the exhibition 'Update' at Danish Centre of Architecture (DAC)", "My role was to create a system to easily change and update the traffic in the street and help out with the tracking done using 2 kinectV2 hanging in the ceiling"],
 		"tags": "C++, GLSL, KinectV2, openCV",
         "hero": "hero.jpg",
-        "images":["dac_bymodel_1.jpg", "dac_bymodel_2.jpg"],
+        "images":[
+			{"src":"dac_bymodel_1.jpg", "text":""},
+			{"src":"dac_bymodel_2.jpg", "text":""}],
 		"vimeoIDs":[],
-		"movies":["dac_bymodel_vid.mp4"],
+		"movies":[{"src":"dac_bymodel_vid.mp4", "text":""}],
 		"useVideoAsHero":true,
 		"client": "Dansk Arkitektur Center"
 	},
@@ -147,7 +191,12 @@
 			"I used rapid prototyping and video for exploring ideas. The final prototype generates poly-rythmic patters when the user places the colored blocks on the table. The poly-rythmic patterns can be used to explain the matematical principle of fractions and algebra."],
 		"tags": "Processing, Tangible prototype",
         "hero": "hero.png",
-        "images":["1.jpg", "2.png", "3.png", "4.png", "5.png", "6.png"],
+        "images":[
+			{"src":"1.jpg", "text":""},
+			{"src":"2.png", "text":""},
+			{"src":"3.png", "text":""},
+			{"src":"4.png", "text":""},
+			{"src":"5.png", "text":""}],
 		"vimeoIDs":["68626959"],
 		"movies":[],
 		"client": "Bachelor thesis"
@@ -159,7 +208,9 @@
         "hero": "screen.png",
         "images":[],
 		"vimeoIDs":[],
-		"movies":["ericsson_movie3.mp4", "ericsson_movie2.mp4"],
+		"movies":[
+			{"src":"ericsson_movie3.mp4", "text":""},
+			{"src":"ericsson_movie2.mp4", "text":""}],
 		"useVideoAsHero": true,
 		"client": "Ericsson"
 	},
@@ -172,7 +223,10 @@
 		],
 		"tags": "C++, Digital Signal Processing, ISEA2015, Projection mapping",
         "hero": "PMMOS4.jpg",
-        "images":["PMMOS2.jpg", "PMMOS3.jpg", "PMMOS5.jpg"],
+        "images":[
+			{"src":"PMMOS2.jpg", "text":""},
+			{"src":"PMMOS3.jpg", "text":""},
+			{"src":"PMMOS5.jpg", "text":""}],
 		"vimeoIDs":["122469214"],
 		"movies":[],
 		"client": "Finnish National Gallery"
@@ -185,7 +239,14 @@
 			"The posters was the final outcome visualising a sentence by using colors as mood, shapes representing gestures and graphics representing each word of the sentence."],
 		"tags": "Graphic design",
         "hero": "poster3.png",
-        "images":["poster2.png","poster1.png","1.jpg","2.jpg", "3.jpg", "4.jpg", "5.jpg","7.jpg"],
+        "images":[
+			{"src":"poster2.png", "text":""},
+			{"src":"poster1.png", "text":""},
+			{"src":"1.jpg", "text":""},
+			{"src":"2.jpg", "text":""},
+			{"src":"3.jpg", "text":""},
+			{"src":"4.jpg", "text":""},
+			{"src":"5.jpg", "text":""}],
 		"vimeoIDs":[],
 		"movies":[],
 		"client": "Eksperiments"
@@ -204,7 +265,13 @@
 			"My role in the project as service designer, was to develop a service design concept incorporating the existing elements of the Sydney Opera House into a unified experience. The concept evolved around the three main identified visitor goals."],
 		"tags": "Graphic design, Experience design",
         "hero": "hero.jpg",
-        "images":["SOH0.jpg", "SOH1.jpg", "SOH2.jpg", "SOH3.jpg", "SOH4.jpg", "SOH5.jpg"],
+        "images":[
+			{"src":"SOH0.jpg", "text":""},
+			{"src":"SOH1.jpg", "text":""},
+			{"src":"SOH2.jpg", "text":""},
+			{"src":"SOH3.jpg", "text":""},
+			{"src":"SOH4.jpg", "text":""},
+			{"src":"SOH5.jpg", "text":""}],
 		"vimeoIDs":[],
 		"movies":[],
 		"client": "Exchange Programme"
@@ -218,7 +285,12 @@
 			"The interactive play, Anatomy of a Decision, requires the audience to decide which direction the story of the play should take throughout nine scenes."],
 		"tags": "C++, reacTIVision, 72 players connected over UDP/IP, Open Sound Control",
         "hero": "hero.jpg",
-        "images":["this1.png", "this2.png", "this3.png", "this4.png","this5.png"],
+        "images":[
+			{"src":"this1.png", "text":""},
+			{"src":"this2.png", "text":""},
+			{"src":"this3.png", "text":""},
+			{"src":"this4.png", "text":""},
+			{"src":"this5.png", "text":""}],
 		"vimeoIDs":[],
 		"movies":[],
 		"client": "Erinevate Tubade Klubi"

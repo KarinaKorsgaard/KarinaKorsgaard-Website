@@ -63,11 +63,10 @@ export default {
   border-color: #333333;
   color:#333333;
   position: relative;
+  margin:15px;
 }
 .thumbContainer .title {
-
-
-  margin: 25px 25px;
+  margin: 35px 25px;
   font-weight: bold;
   font-size: 1.3em;
 line-height: 0.5em;
@@ -93,7 +92,7 @@ line-height: 0.5em;
   height: 250px;
   margin: 25px;
 	position: absolute;
-	bottom: 25px;
+	bottom: 0px;
 }
 
 </style>
