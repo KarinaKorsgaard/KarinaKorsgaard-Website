@@ -208,6 +208,8 @@ export default {
 .videoContainer .entry{
  display:flex;
  margin-top: 30px;
+ max-height: 100%;
+ flex-wrap: wrap;
 }
 .videoContainer .entry p{
  width: 250px;
