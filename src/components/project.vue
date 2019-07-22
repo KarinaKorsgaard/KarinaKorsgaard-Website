@@ -1,19 +1,27 @@
 <template>
   <section>
+	 
     <!-- thumbnail display -->
 
     <!-- main display -->
-
+<transition name="slide">
       <div class="projectDrawer" v-if="loaded">
+		  <div class="drawerContent">
 		<div
 			v-if="!useVideoAsHero"
         	class="hero"
-        	v-bind:style="{ 'background-image': 'url(' + getHeroFileName() + ')' }"
+        	v-bind:style="{ 'background-image': 'url(' + getFileName(hero) + ')' }"
       	/>
-        <video v-else controls autoplay playsinline loop muted class="heroVideo" >
-          <source :src="getHeroFileName()" type="video/mp4" />
+        <video v-else controls
+		autoplay
+		playsinline
+		loop
+		muted
+		class="video"
+		>
+          <source :src="getFileName(hero)" type="video/mp4" />
         </video>
-		<div class="drawerContent">
+		
 		<h1>{{title}}</h1>
         <div class="about">
           <div class="clientAndTags">
@@ -22,7 +30,7 @@
           </div>
 
           <div class="description">
-            <div v-for="item of description" v-bind:key="item">
+            <div v-for="(item) of description" v-bind:key="item">
               {{item}}
               <br />
               <br />
@@ -30,34 +38,44 @@
           </div>
         </div>
 
-        <div class="videoContainer">
-          <div v-for="(item, index) of vimeoIDs" v-bind:key="item">
-            <vueVimeoPlayer class="movie" :video-id="vimeoIDs[index]" :player-width="videoWidth"></vueVimeoPlayer>
-          </div>
+       
+        <div v-for="(item, index) in vimeoIDs" v-bind:key="index">
+        	<vueVimeoPlayer :video-id="vimeoIDs[index]" :player-width="videoWidth"></vueVimeoPlayer>
         </div>
+       
 
         <div class="videoContainer">
-          <div v-for="(item, index) of movies" v-bind:key="item" class="entry">
-            <video controls autoplay playsinline loop muted class="movie" max-width="100%">
-              <source :src="getFileMovieName(index)" type="video/mp4" />
+          <div v-for="(item, index) in movies" v-bind:key="index" class="entry">
+            <video controls autoplay playsinline loop muted class="video" max-width="100%">
+              <source :src="getFileName(movies[index].src)" type="video/mp4" />
             </video>
 			<p v-if="item.text!=''">{{item.text}}</p>
           </div>
         </div>
 
         <div class="imgContainer">
-          <div v-for="(item, index) of images" v-bind:key="item">
-            <img class="images" :src="getFileName(index)" />
+          <div v-for="(item, index) in images" v-bind:key="index">
+            <img class="images" :src="getFileName(images[index].src)" />
           </div>
         </div>
       </div>
+
+	  <router-link class="link" :to="{ name: 'Home' } ">
+	  	<img src="../assets/back.png" id="back"/>
+	  </router-link>
+
       </div>
+
+	  
+</transition>
   </section>
 </template>
 
 <script>
 import { vueVimeoPlayer } from "vue-vimeo-player";
 import projectInfo from "../assets/filenames.json";
+import Home from "../components/Home.vue";
+
 export default {
   name: "Project",
   data: function() {
@@ -91,7 +109,8 @@ export default {
     }
   },
   components: {
-    vueVimeoPlayer
+	vueVimeoPlayer,
+	Home,
   },
   methods: {
     readJson() {
@@ -107,7 +126,7 @@ export default {
       this.tags = json.tags;
 	  this.hero = json.hero;
 	  this.client = json.client;
-      this.videoWidth = window.innerWidth * 0.8 * 0.8;
+      this.videoWidth = window.innerWidth;
       console.log(this.videoWidth);
       this.loaded = true;
 
@@ -116,24 +135,15 @@ export default {
         this.hero = this.movies[0];
         this.movies = this.movies.slice(1, this.movies.length);
       }
+	},
+
+	getFileName(str) {
+		if (str == this.hero && this.$attrsuseVideoAsHero) return require("../assets/" + this.identifier + "/" + this.hero.src);
+	  	// console.log("../assets/" + this.identifier + "/" + this.images[i]);
+	  	// console.log("../assets/" + this.identifier + "/" + str);
+	  	return require("../assets/" + this.identifier + "/" + str);
     },
-    getFileName(i) {
-	  // console.log("../assets/" + this.identifier + "/" + this.images[i]);
-	  console.log("../assets/" + this.identifier + "/" + this.images[i].src);
-	  return require("../assets/" + this.identifier + "/" + this.images[i].src);
-    },
-    getFileMovieName(i) {
-		 console.log("../assets/" + this.identifier + "/" + this.movies[i].src);
-      return require("../assets/" + this.identifier + "/" + this.movies[i].src);
-    },
-    getHeroFileName(str) {
-      // console.log("../assets/" + this.identifier + "/" + this.hero);
-	  if (!this.useVideoAsHero) return require("../assets/" + this.identifier + "/" + this.hero);
-	  else return require("../assets/" + this.identifier + "/" + this.hero.src);
-    },
-    getVimeoID(i) {
-      return "https://player.vimeo.com/video/" + this.vimeoIDs[i];
-    },
+   
     open() {
       this.isMinified = false;
     },
@@ -145,6 +155,17 @@ export default {
 </script>
 
 <style scoped>
+
+.slide-enter-active {
+  transform: translate3d(100%, 0, 0);
+}
+.slide-enter-to {
+  transform: translate3d(0%, 0, 0);
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.5s ease-in-out;
+}
 
 .projectDrawer {
 	position: relative;
@@ -167,16 +188,31 @@ export default {
 
 
 .hero {
-  height: 60vh;
-  width: 100%;
+  	height: 60vh;
+  	width: 100%;
 	background-size: cover;
-  background-position: center center;
+  	background-position: center center;
 }
-.heroVideo{
+
+.video {
 	max-width: 100%;
-	max-height: 100vh; 
-	 max-width: 100%;
+	max-height: 100vh;
 }
+
+#back {
+  position: fixed;
+  top: 70px;
+  right:50px;
+  width: 50px;
+  mix-blend-mode: difference;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#back:hover {
+	transform: scale(1.1);
+}
+
+
 .about {
   text-align: left;
   width: 100%;
@@ -218,18 +254,6 @@ export default {
  align-self: center;
  margin: 15px;
 }
-
-.videoContainer .entry .movie {
-  max-height: 80vh;
-  max-width: 100%;
-	margin: 10px;
-}
-
-.videoContainer {
-  width: 100%;
-  text-align: center;
-}
-
 
 .imgContainer {
   width: 100%;
