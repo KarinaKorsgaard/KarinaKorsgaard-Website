@@ -175,6 +175,7 @@ export default {
 .heroVideo{
 	max-width: 100%;
 	max-height: 100vh; 
+	 max-width: 100%;
 }
 .about {
   text-align: left;
@@ -220,6 +221,7 @@ export default {
 
 .videoContainer .entry .movie {
   max-height: 80vh;
+  max-width: 100%;
 	margin: 10px;
 }
 
