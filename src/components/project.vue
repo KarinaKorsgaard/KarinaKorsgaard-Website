@@ -138,7 +138,8 @@ export default {
 	},
 
 	getFileName(str) {
-		if (str == this.hero && this.$attrsuseVideoAsHero) return require("../assets/" + this.identifier + "/" + this.hero.src);
+		  if (str == this.hero && this.useVideoAsHero)
+        return require("../assets/" + this.identifier + "/" + this.hero.src);
 	  	// console.log("../assets/" + this.identifier + "/" + this.images[i]);
 	  	// console.log("../assets/" + this.identifier + "/" + str);
 	  	return require("../assets/" + this.identifier + "/" + str);
