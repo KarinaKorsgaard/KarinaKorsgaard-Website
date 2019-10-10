@@ -1,0 +1,28 @@
+$primary: purple;
+
+$breakpoints: (
+  mobile: 768px,
+  laptop: 1240px,
+  desktop-lg: 1800px
+);
+
+// 0 - mobile
+@mixin small {
+  @media (max-width: map-get($breakpoints, mobile) - 1) {
+    @content;
+  }
+}
+
+// mobile - laptop
+@mixin medium {
+  @media (min-width: map-get($breakpoints, mobile)) {
+	@content;
+  }
+}
+
+// laptop -->
+@mixin large {
+  @media (min-width: map-get($breakpoints, laptop)) {
+    @content;
+  }
+}

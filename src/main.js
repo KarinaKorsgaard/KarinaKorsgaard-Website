@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Project from "./components/project.vue";
 import About from "./components/about.vue";
 import Home from "./components/Home.vue";
+import Playground from "./components/Playground.vue";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -25,7 +26,15 @@ const routes = [
 		name: 'About', 
 		component: About,
 	},
-	{ path: "*" }
+	{
+		path: '/Playground', 
+		name: 'Playground', 
+		component: Playground,
+	},
+	{ 
+		path: "*",
+		component: Home,
+	}
 ]
 const router = new VueRouter({routes})
 
