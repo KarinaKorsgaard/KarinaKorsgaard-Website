@@ -17,6 +17,36 @@
 			{"src":"03_achievements.mp4", "text":"All particles discovered during the game are saved in an interactive highscore board. On the high score board you can learn more about each individual particle you discovered. The more particles you collect, the more you level up."}],
 		"client": "Syddansk Universitet"
 	},
+	"IKEA": {
+		"title":"Say Hej", 
+		"description": [
+			"Internal campaign for IKEA. During the campaign IKEA empolyees could upload their picture to find their IKEA doppelganger. We used Azure face API to match up the users and find the most similar face in among the other users."],
+		"tags": "Vue.js, Azure Face API",
+        "hero": "tak.jpg",
+        "images":[
+			{"src":"ikea1.png", "text":""}
+		],
+		"vimeoIDs":[],
+		"movies":[
+			{"src":"tak-end.mp4", "text":""}
+		],
+		"client": "Ikea",
+		"useVideoAsHero": true
+	},
+	"Ballerup": {
+		"title":"Ballerup library", 
+		"description": [
+			"Interactive installations for Ballerup library to promote their online resources."],
+		"tags": "C++, openFrameworks, Arduino, Installation",
+        "hero": "speech.jpg",
+        "images":[
+			{"src":"travel.jpg", "text":""},
+			{"src":"speech.jpg", "text":""}
+		],
+		"vimeoIDs":[],
+		"movies":[],
+		"client": "Ballerup Library"
+	},
     "Sydney":{
 		"tag": "dontShow",
         "title":"Inside the sails", 
@@ -128,6 +158,8 @@
 		"tags": "C++, GLSL",
         "hero": "hero.jpg",
 		"images":[
+			{"src":"shader.JPG", "text":""},
+			{"src":"shader2.JPG", "text":""},
 			{"src":"glitch1.png", "text":""},
 			{"src":"glitch2.png", "text":""},
 			{"src":"glitch3.png", "text":""},

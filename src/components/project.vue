@@ -199,10 +199,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  .description {
-    width: 60%;
-    min-width: 300px;
-  }
+  
   .clientAndTags {
     width: 35%;
     min-width: 300px;
